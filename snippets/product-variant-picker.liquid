@@ -24,7 +24,15 @@
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
-              {% render 'product-variant-options', product: product, option: option, block: block %}
+              {%- for value in option.values -%}
+                <option value="{{ value | escape }}">
+                  {% if option_disabled -%}
+                    {{- 'products.product.value_unavailable' | t: option_value: value -}}
+                  {%- else -%}
+                    {{- value -}}
+                  {%- endif %}
+                </option>
+              {% endfor %}
             </select>
             {% render 'icon-caret' %}
           </div>
