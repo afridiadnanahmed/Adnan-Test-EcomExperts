@@ -20,9 +20,9 @@
           <div class="select">
             <select
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
-              class="select__select"
-              name="options[{{ option.name | escape }}]"
+              class="select__select variant-size-dropdown"
               form="{{ product_form_id }}"
+              onchange="alert('change')"
             >
               <option value="">--Select Option--</option>
               {%- for value in option.values -%}
