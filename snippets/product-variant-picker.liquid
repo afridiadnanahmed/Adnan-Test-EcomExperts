@@ -23,7 +23,7 @@
               class="select__select variant-size-dropdown"
               form="{{ product_form_id }}"
               onchange="changeSize(this.options[this.selectedIndex].text)"
-            >
+              >
               <option value="">--Select Option--</option>
               {%- for value in option.values -%}
                 <option value="{{ value | escape }}">
@@ -38,6 +38,12 @@
             {% render 'icon-caret' %}
           </div>
         </div>
+
+        <script>
+          sizeChange(size){
+            console.log(size)
+          }
+        </script>
       {% endif %}
     {% endfor %}
     {% render 'variant-pills', block: block %}
