@@ -40,6 +40,10 @@
         </div>
 
         <script>
+          document.addEventListener('DOMContentLoaded', function(){
+            console.log('content loaded')
+          })
+
           function change_size(size) {
             document.querySelector('input[name="Size"][value="'+ size +'"]').click();
           }
