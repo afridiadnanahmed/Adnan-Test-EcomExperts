@@ -20,10 +20,10 @@
           <div class="select">
             <select
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
-              class="select__select"
-              name="options[{{ option.name | escape }}]"
+              class="select__select variant-size-dropdown"
               form="{{ product_form_id }}"
-            >
+              onchange="change_size(this.options[this.selectedIndex].text)"
+              >
               <option value="">--Select Option--</option>
               {%- for value in option.values -%}
                 <option value="{{ value | escape }}">
@@ -38,6 +38,18 @@
             {% render 'icon-caret' %}
           </div>
         </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function(){
+            document.querySelectorAll('input[name="Size"]').forEach(function(input){
+              input.checked = false;
+            })
+          })
+
+          function change_size(size) {
+            document.querySelector('input[name="Size"][value="'+ size +'"]').click();
+          }
+        </script>
       {% endif %}
     {% endfor %}
     {% render 'variant-pills', block: block %}
