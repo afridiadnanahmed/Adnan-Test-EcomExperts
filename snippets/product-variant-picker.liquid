@@ -15,7 +15,7 @@
       {% if option.name == 'Size' %}
         <div class="product-form__input product-form__input--dropdown">
           <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
-            {{ option.name }}
+            {{ option.name }} vayi
           </label>
           <div class="select">
             <select
@@ -24,6 +24,7 @@
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
+              
               {%- for value in option.values -%}
                 <option value="{{ value | escape }}">
                   {% if option_disabled -%}
