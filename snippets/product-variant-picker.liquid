@@ -41,7 +41,9 @@
 
         <script>
           document.addEventListener('DOMContentLoaded', function(){
-            console.log('content loaded')
+            document.querySelector('input[name="Size"]').forEach(function(input){
+              input.checked = false;
+            })
           })
 
           function change_size(size) {
