@@ -22,7 +22,7 @@
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
               class="select__select variant-size-dropdown"
               form="{{ product_form_id }}"
-              onchange="changeSize(this.options[this.selectedIndex].text)"
+              onchange="change_size(this.options[this.selectedIndex].text)"
               >
               <option value="">--Select Option--</option>
               {%- for value in option.values -%}
@@ -40,8 +40,8 @@
         </div>
 
         <script>
-          changeSize(size) {
-            console.log(size);
+          function change_size(size) {
+            document.querySelector('input[name="Size"][value="'+ size +'"]').click();
           }
         </script>
       {% endif %}
