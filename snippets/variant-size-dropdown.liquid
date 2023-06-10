@@ -1,0 +1,38 @@
+<div class="product-form__input product-form__input--dropdown">
+  <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+    {{ option.name }}
+  </label>
+  <div class="select">
+    <select
+      id="Option-{{ section.id }}-{{ forloop.index0 }}"
+      class="select__select variant-size-dropdown"
+      form="{{ product_form_id }}"
+      onchange="change_size(this.options[this.selectedIndex].text)"
+      >
+      <option value="">--Select Option--</option>
+      {%- for value in option.values -%}
+        <option value="{{ value | escape }}">
+          {% if option_disabled -%}
+            {{- 'products.product.value_unavailable' | t: option_value: value -}}
+          {%- else -%}
+            {{- value -}}
+          {%- endif %}
+        </option>
+      {%- endfor -%}
+    </select>
+    {% render 'icon-caret' %}
+  </div>
+</div>
+
+<script>
+  // On page reload unselect size option
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('input[name="Size"]').forEach(function(input){
+      input.checked = false;
+    })
+  })
+
+  function change_size(size) {
+    document.querySelector('input[name="Size"][value="'+ size +'"]').click();
+  }
+</script>
