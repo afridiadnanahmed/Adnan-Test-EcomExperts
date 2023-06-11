@@ -29,6 +29,10 @@
   document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('input[name="Size"]').forEach(function(input){
       input.checked = false;
+      // If no variant is selected, unset the default variant
+      if (window.location.href.indexOf('variant') < 0) {
+        document.querySelector('form input.product-variant-id').value = '';
+      }
     })
   })
 
