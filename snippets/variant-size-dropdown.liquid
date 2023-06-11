@@ -30,6 +30,7 @@
     document.querySelectorAll('input[name="Size"]').forEach(function(input){
       input.checked = false;
       // If no variant is selected or page refreshed, unset the default variant
+      document.querySelector('form input.product-variant-id').value = '';
     })
   })
 
