@@ -36,15 +36,19 @@
     clearVariant();
   })
 
+  // Clears varaint in form to be submitted
   function clearVariant() {
     document.querySelector('form input.product-variant-id').value = '';
   }
 
   function change_size(size) {
+    // Uncheck variant if size is set to null
     if(size == ''){
       clearVariant();
       return false;
     }
+
+    // Check if default variant is not set and
 
     document.querySelector('input[name="Size"][value="'+ size +'"]').click();
   }
