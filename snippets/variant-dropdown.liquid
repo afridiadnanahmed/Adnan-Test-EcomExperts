@@ -19,6 +19,7 @@
           class="select__select"
           name="options[{{ option.name | escape }}]"
           form="{{ product_form_id }}"
+          onchange="checkSize()"
         >
           {% render 'product-variant-options', product: product, option: option, block: block %}
         </select>
