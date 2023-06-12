@@ -13,7 +13,7 @@
   {%- if block.settings.picker_type == 'button' -%}
     {% for option in product.options_with_values %}
       {% if option.name == 'Size' %}
-        {% render 'variant-size-dropdown', block: block, option: option %}
+        {% render 'variant-size-dropdown', block: block, option: option, forloop: forloop %}
       {% endif %}
     {% endfor %}
     {% render 'variant-pills', block: block %}
