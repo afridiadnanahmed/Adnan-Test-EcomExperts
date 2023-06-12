@@ -6,8 +6,7 @@
     <select
       id="Option-{{ section.id }}-{{ forloop.index0 }}"
       class="select__select variant-size-dropdown"
-      form="{{ product_form_id }}"
-      onchange="change_size(this.options[this.selectedIndex].text)"
+      onchange="changeSize(this.options[this.selectedIndex].value)"
       >
       <option value="">--Select Option--</option>
       {%- for value in option.values -%}
@@ -27,16 +26,36 @@
 <script>
   // On page reload unselect size option
   document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('input[name="Size"]').forEach(function(input){
-      input.checked = false;
-      // If no variant is selected, unset the default variant
-      if (window.location.href.indexOf('variant=') < 0) {
-        document.querySelector('form input.product-variant-id').value = '';
-      }
-    })
-  })
+    clearVariant();
+  });
 
-  function change_size(size) {
+  // Clears varaint in form to be submitted
+  function clearVariant() {
+    document.querySelector('form input.product-variant-id').value = '';
+  }
+
+  function checkSize() {
+    if(document.querySelector('.variant-size-dropdown').value == '') {
+      setTimeout(() => {
+        changeSize('')
+      });
+    }
+  }
+
+  function changeSize(size) {
+    console.log('size', size)
+    // Uncheck variant if size is set to null
+    if(size == ''){
+      console.log('null')
+      clearVariant();
+      return false;
+    }
+
+    // Check if default variant is not set and size selected is "Small"
+    if( size == 'Small' && document.querySelector('form input.product-variant-id').value == ''){
+      document.querySelector('input[name="Size"][value="'+ size +'"]').checked = false;
+    }
+
     document.querySelector('input[name="Size"][value="'+ size +'"]').click();
   }
 </script>
