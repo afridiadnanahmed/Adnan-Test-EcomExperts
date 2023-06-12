@@ -27,12 +27,6 @@
 <script>
   // On page reload unselect size option
   document.addEventListener('DOMContentLoaded', function(){
-    {% comment %} document.querySelectorAll('input[name="Size"]').forEach(function(input){ {% endcomment %}
-      {% comment %} input.checked = false; {% endcomment %}
-      // If no variant is selected, unset the default variant
-      {% comment %} if (window.location.href.indexOf('variant=') < 0) {
-      } {% endcomment %}
-      {% comment %} }) {% endcomment %}
     clearVariant();
   })
 
