@@ -7,7 +7,7 @@
       id="Option-{{ section.id }}-{{ forloop.index0 }}"
       class="select__select variant-size-dropdown"
       form="{{ product_form_id }}"
-      onchange="changeSizes(this.options[this.selectedIndex].value)"
+      onchange="change_size(this.options[this.selectedIndex].value)"
       >
       <option value="">--Select Option--</option>
       {%- for value in option.values -%}
@@ -35,7 +35,7 @@
     document.querySelector('form input.product-variant-id').value = '';
   }
 
-  function changeSizes(size) {
+  function change_sizes(size) {
     // Uncheck variant if size is set to null
     if(size == ''){
       clearVariant();
