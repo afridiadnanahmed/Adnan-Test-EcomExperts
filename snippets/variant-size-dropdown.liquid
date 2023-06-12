@@ -36,12 +36,7 @@
   }
 
   function change_sizes(size) {
-    // Uncheck variant if size is set to null
-    if(size == ''){
-      clearVariant();
-      return false;
-    }
-
+    
 
     document.querySelector('input[name="Size"][value="'+ size +'"]').click();
   }
