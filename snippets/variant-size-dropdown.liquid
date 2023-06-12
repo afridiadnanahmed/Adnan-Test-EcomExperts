@@ -34,6 +34,13 @@
     document.querySelector('form input.product-variant-id').value = '';
   }
 
+  function checkSize() {
+    if( document.querySelector('.variant-size-dropdown').value == '') {
+      console.log('checking size')
+      clearVariant();
+    }
+  }
+
   function changeSize(size) {
     // Uncheck variant if size is set to null
     if(size == ''){
