@@ -27,14 +27,18 @@
 <script>
   // On page reload unselect size option
   document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('input[name="Size"]').forEach(function(input){
-      input.checked = false;
+    {% comment %} document.querySelectorAll('input[name="Size"]').forEach(function(input){ {% endcomment %}
+      {% comment %} input.checked = false; {% endcomment %}
       // If no variant is selected, unset the default variant
-      if (window.location.href.indexOf('variant=') < 0) {
-        document.querySelector('form input.product-variant-id').value = '';
-      }
+      {% comment %} if (window.location.href.indexOf('variant=') < 0) {
+      } {% endcomment %}
+      {% comment %} }) {% endcomment %}
+      clearVariant();
     })
-  })
+
+    function clearVariant() {
+      document.querySelector('form input.product-variant-id').value = '';
+  }
 
   function change_size(size) {
     document.querySelector('input[name="Size"][value="'+ size +'"]').click();
