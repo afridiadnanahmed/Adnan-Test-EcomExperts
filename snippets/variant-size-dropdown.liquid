@@ -42,7 +42,7 @@
     }
 
     // Check if default variant is not set and size selected is "Small"
-    if(size == 'Small' && document.querySelector('form input.product-variant-id').value = '') {
+    if(size == 'Small' && document.querySelector('form input.product-variant-id').value == '') {
       document.querySelector('input[name="Size"][value="'+ size +'"]').checked = false;
     }
 
